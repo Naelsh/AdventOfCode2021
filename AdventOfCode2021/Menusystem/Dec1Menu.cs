@@ -8,11 +8,10 @@ namespace AdventOfCode2021.Menusystem
 {
     class Dec1Menu : Menu
     {
-        private Dictionary<int, Menu> _possibleMenus;
-        public Dec1Menu(Menu returnMenu)
+        private Menu _mainMenu;
+        public Dec1Menu(Menu mainMenu)
         {
-            _possibleMenus = new Dictionary<int, Menu>();
-            _possibleMenus.Add(0, returnMenu);
+            _mainMenu = mainMenu;
         }
 
         public override void ShowMenu()
@@ -23,7 +22,7 @@ namespace AdventOfCode2021.Menusystem
 
         public override Menu GetNextMenu(int input)
         {
-            return _possibleMenus[0];
+            return _mainMenu;
         }
 
         public override int HandleInput()
