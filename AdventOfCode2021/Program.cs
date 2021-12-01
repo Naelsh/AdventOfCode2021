@@ -1,4 +1,4 @@
-﻿using AdventOfCode2021.Input;
+﻿using AdventOfCode2021.Menusystem;
 using System;
 
 namespace AdventOfCode2021
@@ -7,15 +7,16 @@ namespace AdventOfCode2021
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            InputHandler inputHandler = new InputHandler();
-            
-            string input = Console.r;
-            string[] array = inputHandler.GetSingleColumnInputToList(input);
-            foreach (string item in array)
+            Menu menu = new MainMenu();
+            while (menu != null)
             {
-                Console.WriteLine(item);
+                menu.ShowMenu();
+                var input = menu.HandleInput();
+                menu = menu.GetNextMenu(input);
             }
+            Console.WriteLine("Good bye");
+            Console.ReadLine();
+            Environment.Exit(0);
         }
     }
 }

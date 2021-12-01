@@ -16,7 +16,6 @@ namespace AdventOfCode2021.Input
             _reader = new StreamReader(filePath);
         }
 
-
         public string[] GetSingleColumnInputToList()
         {
             string result = _reader.ReadToEnd();
