@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,18 @@ namespace AdventOfCode2021.Input
 {
     class InputHandler
     {
-        
+        private StreamReader _reader;
 
-        public string[] GetSingleColumnInputToList(string input)
+        public InputHandler(string filePath)
         {
-            return input.Split("\n");
+            _reader = new StreamReader(filePath);
+        }
+
+
+        public string[] GetSingleColumnInputToList()
+        {
+            string result = _reader.ReadToEnd();
+            return result.Split("\n");
         }
     }
 }
