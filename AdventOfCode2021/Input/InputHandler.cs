@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2021.Input
 {
-    class InputHandler
+    public class InputHandler
     {
         private StreamReader _reader;
 
@@ -20,7 +20,7 @@ namespace AdventOfCode2021.Input
         public string[] GetSingleColumnInputToList()
         {
             string result = _reader.ReadToEnd();
-            return result.Split("\n");
+            return result.Replace("\r", "").Split("\n");
         }
     }
 }
