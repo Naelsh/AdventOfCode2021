@@ -33,5 +33,31 @@ namespace AdventOfCode2021.Dec2
                     break;
             }
         }
+
+        public void MoveSubmarine(Movement movement)
+        {
+            switch (movement.direction)
+            {
+                case MovementDirection.forward:
+                    _position.X += movement.magnitude;
+                    break;
+                case MovementDirection.up:
+                    _position.Y -= movement.magnitude;
+                    break;
+                case MovementDirection.down:
+                    _position.Y += movement.magnitude;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void MoveSubmarine(Movement[] movements)
+        {
+            foreach (Movement movement in movements)
+            {
+                MoveSubmarine(movement);
+            }
+        }
     }
 }
