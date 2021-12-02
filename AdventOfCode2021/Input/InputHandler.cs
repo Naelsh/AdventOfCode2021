@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode2021.Dec2;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,16 +10,14 @@ namespace AdventOfCode2021.Input
 {
     public class InputHandler
     {
-        private StreamReader _reader;
-
-        public InputHandler(string filePath)
+        public InputHandler()
         {
-            _reader = new StreamReader(filePath);
         }
 
-        public string[] GetSingleColumnInputToList()
+        public string[] GetSingleColumnInputToList(string filePath)
         {
-            string result = _reader.ReadToEnd();
+            StreamReader reader = new StreamReader(filePath);
+            string result = reader.ReadToEnd();
             return result.Replace("\r", "").Split("\n");
         }
 
@@ -26,5 +25,42 @@ namespace AdventOfCode2021.Input
         {
             return Array.ConvertAll(stringArr, int.Parse);
         }
+
+        //internal Movement[] GetMovements(string[] results)
+        //{
+        //    Movement[] movements = new Movement[results.Length];
+        //    for (int resultIndex = 0; resultIndex < results.Length; resultIndex++)
+        //    {
+        //        movements[resultIndex] = 
+        //    }
+        //}
+
+        //private Movement GetMovement(string input)
+        //{
+        //    string[] values = input.Split(' ');
+        //    switch (values[0])
+        //    {
+        //        case "forward":
+        //            return new Movement()
+        //            {
+        //                direction = MovementDirection.forward,
+        //                magnitude = int.Parse(values[1])
+        //            };
+        //        case "down":
+        //            return new Movement()
+        //            {
+        //                direction = MovementDirection.forward,
+        //                magnitude = int.Parse(values[1])
+        //            };
+        //        case "up":
+        //            return new Movement()
+        //            {
+        //                direction = MovementDirection.forward,
+        //                magnitude = int.Parse(values[1])
+        //            };
+        //        default:
+        //            break;
+        //    }
+        //}
     }
 }

@@ -40,19 +40,19 @@ namespace AdventOfCode2021.Menusystem
         public override int HandleInput()
         {
             int input = GetIntAboveZeroFromUserInput(3);
-            InputHandler inputHandler = new InputHandler("dec1.txt");
+            InputHandler inputHandler = new InputHandler();
             SonarSweeper sonarSweeper = new SonarSweeper();
             try
             {
                 switch (input)
                 {
                     case 1:
-                        int[] depths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList());
+                        int[] depths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList("dec1.txt"));
                         int result = sonarSweeper.CalculateNumberOfDepthIncreases(depths);
                         PrintResult(result);
                         break;
                     case 2:
-                        int[] slidingDepths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList());
+                        int[] slidingDepths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList("dec1.txt"));
                         int slidingResult = sonarSweeper.CalculateNumberOfSlidingDepthIncreases(slidingDepths);
                         PrintResult(slidingResult);
                         break;
