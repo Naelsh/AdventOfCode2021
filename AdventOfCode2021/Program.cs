@@ -15,6 +15,7 @@ namespace AdventOfCode2021
                 menu = menu.GetNextMenu(input);
             }
             Console.WriteLine("Good bye");
+            Console.WriteLine("Press any key to exit application...");
             Console.ReadLine();
             Environment.Exit(0);
         }

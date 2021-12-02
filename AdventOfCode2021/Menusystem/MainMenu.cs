@@ -22,16 +22,21 @@ namespace AdventOfCode2021.Menusystem
             {
                 Console.WriteLine($"{item.Key}. {item.Value.GetType().Name}");
             }
+            Console.WriteLine($"{_possibleMenus.Count + 1}. Exit application");
         }
 
         public override Menu GetNextMenu(int input)
         {
+            if (input == _possibleMenus.Count + 1)
+            {
+                return null;
+            }
             return _possibleMenus[input];
         }
 
         public override int HandleInput()
         {
-            int input = GetIntAboveZeroFromUserInput(_possibleMenus.Count);
+            int input = GetIntAboveZeroFromUserInput(_possibleMenus.Count + 1);
             return input;
         }
     }

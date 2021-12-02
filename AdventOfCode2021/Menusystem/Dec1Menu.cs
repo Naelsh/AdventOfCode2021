@@ -52,6 +52,9 @@ namespace AdventOfCode2021.Menusystem
                         PrintResult(result);
                         break;
                     case 2:
+                        int[] slidingDepths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList());
+                        int slidingResult = sonarSweeper.CalculateNumberOfSlidingDepthIncreases(slidingDepths);
+                        PrintResult(slidingResult);
                         break;
                     case 3:
                         break;
