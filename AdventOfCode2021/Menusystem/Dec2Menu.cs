@@ -10,6 +10,13 @@ namespace AdventOfCode2021.Menusystem
 {
     class Dec2Menu : ProblemMenu
     {
+        private Menu _mainMenu;
+
+        public Dec2Menu(Menu mainMenu)
+        {
+            _mainMenu = mainMenu;
+        }
+
         public override void PrintResult(string result)
         {
             throw new NotImplementedException();
@@ -31,7 +38,14 @@ namespace AdventOfCode2021.Menusystem
 
         public override Menu GetNextMenu(int input)
         {
-            throw new NotImplementedException();
+            if (input == 3)
+            {
+                return _mainMenu;
+            }
+            else
+            {
+                return this;
+            }
         }
 
         public override int HandleInput()
@@ -42,9 +56,11 @@ namespace AdventOfCode2021.Menusystem
             switch (input)
             {
                 case 1:
-                    //string[] results = inputHandler.GetSingleColumnInputToList();
-                    //Movement[] movements = inputHandler.GetMovements(results);
-                    //submarine.MoveSubmarine(movements);
+                    string[] results = inputHandler.GetSingleColumnInputToList("dec2.txt");
+                    Movement[] movements = inputHandler.GetMovements(results);
+                    submarine.MoveSubmarine(movements);
+                    Console.WriteLine($"Multiplying the depth {submarine.GetPosition().Y} and forward move {submarine.GetPosition().X}");
+                    Console.WriteLine($"Which result in {submarine.GetPosition().Y * submarine.GetPosition().X}");
                     break;
                 case 2:
                     break;
