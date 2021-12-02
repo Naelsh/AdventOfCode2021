@@ -10,10 +10,30 @@ namespace AdventOfCode2021.Dec2
     public class Submarine
     {
         private Vector2 _position = new Vector2(0, 0);
+        private int _aim = 0;
 
         public Vector2 GetPosition()
         {
             return _position;
+        }
+
+        public void HandleCommand(Movement movement)
+        {
+            switch (movement.direction)
+            {
+                case MovementDirection.forward:
+                    _position.X += movement.magnitude;
+                    _position.Y += (_aim * movement.magnitude);
+                    break;
+                case MovementDirection.up:
+                    _aim -= movement.magnitude;
+                    break;
+                case MovementDirection.down:
+                    _aim += movement.magnitude;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void MoveSubmarine(int magnitude, MovementDirection direction)
@@ -58,6 +78,11 @@ namespace AdventOfCode2021.Dec2
             {
                 MoveSubmarine(movement);
             }
+        }
+
+        public int GetAim()
+        {
+            return _aim;
         }
     }
 }
