@@ -18,5 +18,21 @@ namespace AdventOfCode2021.Dec1
             }
             return returnValue;
         }
+
+        public int CalculateNumberOfSlidingDepthIncreases(int[] depths)
+        {
+            if (depths.Length < 1)
+            {
+                return 0;
+            }
+            List<int> slidingDepths = new List<int>();
+            for (int depth = 0; depth < depths.Length-2; depth++)
+            {
+                slidingDepths.Add(depths[depth] + depths[depth+1] + depths[depth+2]);
+            }
+            int[] slidingArray = slidingDepths.ToArray();
+
+            return CalculateNumberOfDepthIncreases(slidingArray);
+        }
     }
 }
