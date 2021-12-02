@@ -21,5 +21,10 @@ namespace AdventOfCode2021.Input
             string result = _reader.ReadToEnd();
             return result.Replace("\r", "").Split("\n");
         }
+
+        public int[] ConvertStringListToInt(string[] stringArr)
+        {
+            return Array.ConvertAll(stringArr, int.Parse);
+        }
     }
 }
