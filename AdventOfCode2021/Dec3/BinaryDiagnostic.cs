@@ -63,7 +63,50 @@ namespace AdventOfCode2021.Dec3
 
         public string GetLifeSupportRate(string[] bitInput)
         {
-            return "00101";
+            string[] supportRates = bitInput;
+            int currentIndex = 0;
+            while (supportRates.Length > 1)
+            {
+                supportRates = GetTruncatedLifeSupportList(supportRates, currentIndex);
+                currentIndex++;
+            }
+            return supportRates[0];
+        }
+
+        public string[] GetTruncatedLifeSupportList(string[] bitInput, int currentIndex)
+        {
+            int count = 0;
+            for (int row = 0; row < bitInput.Length; row++)
+            {
+                if (bitInput[row][currentIndex] == '1')
+                {
+                    count++;
+                }
+            }
+
+            string[] values;
+            if (count >= ((double)bitInput.Length/2))
+            {
+                values = GetStringsWithDigitInIndex(bitInput, '1', currentIndex);
+            }
+            else
+            {
+                values = GetStringsWithDigitInIndex(bitInput, '0', currentIndex);
+            }
+            return values;
+        }
+
+        public string[] GetStringsWithDigitInIndex(string[] bitInput, char digit, int index)
+        {
+            List<string> values = new List<string>();
+            foreach (string bit in bitInput)
+            {
+                if (bit[index] == digit)
+                {
+                    values.Add(bit);
+                }
+            }
+            return values.ToArray();
         }
     }
 }

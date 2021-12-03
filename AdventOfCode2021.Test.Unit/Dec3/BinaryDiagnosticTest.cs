@@ -50,8 +50,9 @@ namespace AdventOfCode2021.Test.Unit.Dec3
             Assert.AreEqual(expected, result);
         }
 
-        [TestCase(new string[] { "00100", "00101", "00100" }, "00101")]
-        [TestCase(new string[] { "10100", "00101", "10100" }, "10100")]
+        [TestCase(new string[] { "11111", "11000", "10000" }, "11111")]
+        [TestCase(new string[] { "10110", "00101", "10100" }, "10110")]
+        [TestCase(new string[] { "00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010" }, "10111")]
         public void GetLifeSuportRateSuccesfully(string[] bitInput, string expected)
         {
             BinaryDiagnostic binaryDiagnostic = new BinaryDiagnostic();
@@ -59,5 +60,31 @@ namespace AdventOfCode2021.Test.Unit.Dec3
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase(new string[] { "10100", "00101", "10100" }, '1', 0, new string[] { "10100", "10100" })]
+        [TestCase(new string[] { "10100", "00101", "10100" }, '1', 2, new string[] { "10100", "00101", "10100" })]
+        [TestCase(new string[] { "10100", "00101", "10100" }, '0', 4, new string[] { "10100", "10100" })]
+        public void GetStringsWithDigitInIndex(string[] bitInput, char lookedForChar, int index, string[] expected)
+        {
+            BinaryDiagnostic binaryDiagnostic = new BinaryDiagnostic();
+            string[] result = binaryDiagnostic.GetStringsWithDigitInIndex(bitInput, lookedForChar, index);
+
+            Assert.AreEqual(expected.Length, result.Length);
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestCase(new string[] { "10100", "00101", "10100" }, 0, new string[] { "10100", "10100" })]
+        [TestCase(new string[] { "10100", "00101", "10100" }, 2, new string[] { "10100", "00101", "10100" })]
+        [TestCase(new string[] { "10100", "00101", "10100" }, 4, new string[] { "10100", "10100" })]
+        public void GetTruncatedList(string[] bitInput, int index, string[] expected)
+        {
+            BinaryDiagnostic binaryDiagnostic = new BinaryDiagnostic();
+            string[] result = binaryDiagnostic.GetTruncatedLifeSupportList(bitInput, index);
+
+            Assert.AreEqual(expected.Length, result.Length);
+            Assert.AreEqual(expected, result);
+        }
+
+
     }
 }
