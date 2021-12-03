@@ -14,6 +14,7 @@ namespace AdventOfCode2021.Menusystem
             _possibleMenus = new Dictionary<int, Menu>();
             _possibleMenus.Add(1, new Dec1Menu(this));
             _possibleMenus.Add(2, new Dec2Menu(this));
+            _possibleMenus.Add(3, new Dec3Menu(this));
         }
 
         public override void ShowMenu()
