@@ -36,6 +36,14 @@ namespace AdventOfCode2021.Dec2
             }
         }
 
+        public void HandleCommands(Movement[] movements)
+        {
+            foreach (Movement movement in movements)
+            {
+                HandleCommand(movement);
+            }
+        }
+
         public void MoveSubmarine(int magnitude, MovementDirection direction)
         {
             switch (direction)
@@ -72,6 +80,13 @@ namespace AdventOfCode2021.Dec2
             }
         }
 
+        public void Reset()
+        {
+            _aim = 0;
+            _position.X = 0;
+            _position.Y = 0;
+        }
+
         public void MoveSubmarine(Movement[] movements)
         {
             foreach (Movement movement in movements)
@@ -83,6 +98,11 @@ namespace AdventOfCode2021.Dec2
         public int GetAim()
         {
             return _aim;
+        }
+
+        public int GetHorizontalPosition()
+        {
+            return (int)_position.X * (int)_position.Y;
         }
     }
 }

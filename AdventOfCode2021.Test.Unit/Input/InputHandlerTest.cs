@@ -16,7 +16,7 @@ namespace AdventOfCode2021.Test.Unit.Input
             string filePath = "singleColumnTest.txt";
             InputHandler inputHandler = new InputHandler();
 
-            string[] extracted = inputHandler.GetSingleColumnInputToList(filePath);
+            string[] extracted = inputHandler.GetInputRows(filePath);
             
             Assert.AreEqual(expected, extracted);
         }

@@ -53,16 +53,19 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             Submarine submarine = new Submarine();
+            string[] results = inputHandler.GetInputRows("dec2.txt");
+            Movement[] movements = inputHandler.GetMovements(results);
             switch (input)
             {
                 case 1:
-                    string[] results = inputHandler.GetSingleColumnInputToList("dec2.txt");
-                    Movement[] movements = inputHandler.GetMovements(results);
+                    submarine.Reset();
                     submarine.MoveSubmarine(movements);
-                    Console.WriteLine($"Multiplying the depth {submarine.GetPosition().Y} and forward move {submarine.GetPosition().X}");
-                    Console.WriteLine($"Which result in {submarine.GetPosition().Y * submarine.GetPosition().X}");
+                    ShowInput(submarine);
                     break;
                 case 2:
+                    submarine.Reset();
+                    submarine.HandleCommands(movements);
+                    ShowInput(submarine);
                     break;
                 case 3:
                     break;
@@ -70,6 +73,12 @@ namespace AdventOfCode2021.Menusystem
                     break;
             }
             return input;
+        }
+
+        private static void ShowInput(Submarine submarine)
+        {
+            Console.WriteLine($"Multiplying the depth {submarine.GetPosition().Y} and forward move {submarine.GetPosition().X}");
+            Console.WriteLine($"Which result in {submarine.GetHorizontalPosition()}");
         }
     }
 }

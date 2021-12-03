@@ -47,12 +47,12 @@ namespace AdventOfCode2021.Menusystem
                 switch (input)
                 {
                     case 1:
-                        int[] depths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList("dec1.txt"));
+                        int[] depths = inputHandler.ConvertStringListToInt(inputHandler.GetInputRows("dec1.txt"));
                         int result = sonarSweeper.CalculateNumberOfDepthIncreases(depths);
                         PrintResult(result);
                         break;
                     case 2:
-                        int[] slidingDepths = inputHandler.ConvertStringListToInt(inputHandler.GetSingleColumnInputToList("dec1.txt"));
+                        int[] slidingDepths = inputHandler.ConvertStringListToInt(inputHandler.GetInputRows("dec1.txt"));
                         int slidingResult = sonarSweeper.CalculateNumberOfSlidingDepthIncreases(slidingDepths);
                         PrintResult(slidingResult);
                         break;

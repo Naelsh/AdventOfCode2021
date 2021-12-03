@@ -14,7 +14,7 @@ namespace AdventOfCode2021.Input
         {
         }
 
-        public string[] GetSingleColumnInputToList(string filePath)
+        public string[] GetInputRows(string filePath)
         {
             StreamReader reader = new StreamReader(filePath);
             string result = reader.ReadToEnd();
