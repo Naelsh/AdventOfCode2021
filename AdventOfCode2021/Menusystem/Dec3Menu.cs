@@ -64,6 +64,10 @@ namespace AdventOfCode2021.Menusystem
                     Console.WriteLine("The power consumption was: " + powerConsumption);
                     break;
                 case 2:
+                    string oxygen = binaryDiagnostic.GetLifeSupportRate(results);
+                    string co2 = binaryDiagnostic.GetCO2ScrubberRating(results);
+                    int lifeSupportRating = binaryDiagnostic.MultiplyTwoBinaryStrings(oxygen, co2);
+                    Console.WriteLine("Life support rating is: " + lifeSupportRating);
                     break;
                 case 3:
                     break;
