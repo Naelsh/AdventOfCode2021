@@ -85,6 +85,17 @@ namespace AdventOfCode2021.Test.Unit.Dec3
             Assert.AreEqual(expected, result);
         }
 
+        [TestCase(new string[] { "00110", "00101", "10100" }, "10100")]
+        [TestCase(new string[] { "01111", "00000", "10000", "11000" }, "00000")]
+        [TestCase(new string[] { "00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010" }, "01010")]
+        public void GetCO2ScrubberRating(string[] bitInput, string expected)
+        {
+            BinaryDiagnostic binaryDiagnostic = new BinaryDiagnostic();
+            string result = binaryDiagnostic.GetCO2ScrubberRating(bitInput);
+
+            Assert.AreEqual(expected, result);
+        }
+
 
     }
 }

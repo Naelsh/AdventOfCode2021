@@ -108,5 +108,40 @@ namespace AdventOfCode2021.Dec3
             }
             return values.ToArray();
         }
+
+        public string GetCO2ScrubberRating(string[] bitInput)
+        {
+            string[] supportRates = bitInput;
+            int currentIndex = 0;
+            while (supportRates.Length > 1)
+            {
+                supportRates = GetTruncatedCO2ScrubberRatingList(supportRates, currentIndex);
+                currentIndex++;
+            }
+            return supportRates[0];
+        }
+
+        private string[] GetTruncatedCO2ScrubberRatingList(string[] bitInput, int currentIndex)
+        {
+            int count = 0;
+            for (int row = 0; row < bitInput.Length; row++)
+            {
+                if (bitInput[row][currentIndex] == '1')
+                {
+                    count++;
+                }
+            }
+
+            string[] values;
+            if (count < ((double)bitInput.Length / 2))
+            {
+                values = GetStringsWithDigitInIndex(bitInput, '1', currentIndex);
+            }
+            else
+            {
+                values = GetStringsWithDigitInIndex(bitInput, '0', currentIndex);
+            }
+            return values;
+        }
     }
 }
