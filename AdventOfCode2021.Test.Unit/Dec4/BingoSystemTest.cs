@@ -39,7 +39,7 @@ namespace AdventOfCode2021.Test.Unit.Dec4
             bingoSystem.SetUpBoards(boardInput);
             bingoSystem.SetGuessedNumbers(guessNumbers);
 
-            int finalNumber = bingoSystem.DrawNumbers(out BingoBoard bingoBoard);
+            int finalNumber = bingoSystem.DrawNumbersTillFirstWinnerIsFound(out BingoBoard bingoBoard);
 
             Assert.AreEqual(expectedWinningNumber, finalNumber);
             Assert.AreEqual(expectedWinnerSum, bingoBoard.SumUnmarkedTiles());

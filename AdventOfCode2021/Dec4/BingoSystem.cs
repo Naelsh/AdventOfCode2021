@@ -55,7 +55,7 @@ namespace AdventOfCode2021.Dec4
             Boards.Add(newBoard);
         }
 
-        public int DrawNumbers(out BingoBoard winningBoard)
+        public int DrawNumbersTillFirstWinnerIsFound(out BingoBoard winningBoard)
         {
             foreach (int number in GuessNumbers)
             {
@@ -71,6 +71,29 @@ namespace AdventOfCode2021.Dec4
             }
             winningBoard = null;
             return 0;
+        }
+
+        public int DrawNumbersTillFinalBoardWins(out BingoBoard finalWinnerBoard)
+        {
+            int finalNumber = 0;
+            finalWinnerBoard = null;
+            foreach (int number in GuessNumbers)
+            {
+                foreach (BingoBoard board in Boards)
+                {
+                    if (board.HasWon())
+                    {
+                        continue;
+                    }
+                    board.FindMatch(number);
+                    if (board.HasWon())
+                    {
+                        finalWinnerBoard = board;
+                        finalNumber = number;
+                    }
+                }
+            }
+            return finalNumber;
         }
     }
 }

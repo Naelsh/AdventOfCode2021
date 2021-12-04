@@ -11,7 +11,7 @@ namespace AdventOfCode2021.Dec4
     {
         public int[][] boardNumber;
         public byte[][] hitMarkers;
-        private int hits = 0;
+        private int _hits = 0;
 
         public BingoBoard()
         {
@@ -27,7 +27,7 @@ namespace AdventOfCode2021.Dec4
 
         public bool HasWon()
         {
-            if (hits < 5)
+            if (_hits < 5)
             {
                 return false;
             }
@@ -91,7 +91,7 @@ namespace AdventOfCode2021.Dec4
                     if (boardNumber[rowIndex][columnIndex] == guess)
                     {
                         hitMarkers[rowIndex][columnIndex] = 1;
-                        hits++;
+                        _hits++;
                     }
                 }
             }

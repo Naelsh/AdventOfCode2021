@@ -55,19 +55,22 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             string[] results = inputHandler.GetInputRows("dec4.txt");
+            BingoSystem bingoSystem = new BingoSystem();
+            bingoSystem.SetGuessedNumbers(results[0]);
+            List<string> tempList = results.ToList();
+            tempList.RemoveAt(0);
+            bingoSystem.SetUpBoards(tempList.ToArray());
             switch (input)
             {
                 case 1:
-                    BingoSystem bingoSystem = new BingoSystem();
-                    bingoSystem.SetGuessedNumbers(results[0]);
-                    List<string> tempList = results.ToList();
-                    tempList.RemoveAt(0);
-                    bingoSystem.SetUpBoards(tempList.ToArray());
-                    int finalNumber = bingoSystem.DrawNumbers(out BingoBoard winner);
+                    int finalNumber = bingoSystem.DrawNumbersTillFirstWinnerIsFound(out BingoBoard winner);
                     Console.WriteLine($"And the winning number is: {finalNumber} and the board sum is {winner.SumUnmarkedTiles()}");
                     Console.WriteLine($"Which gives a total of {finalNumber * winner.SumUnmarkedTiles()}");
                     break;
                 case 2:
+                    int octopusFinalNumber = bingoSystem.DrawNumbersTillFinalBoardWins(out BingoBoard octopusWinner);
+                    Console.WriteLine($"And the winning number is: {octopusFinalNumber} and the board sum is {octopusWinner.SumUnmarkedTiles()}");
+                    Console.WriteLine($"Which gives a total of {octopusFinalNumber * octopusWinner.SumUnmarkedTiles()}");
                     break;
                 case 3:
                     break;
