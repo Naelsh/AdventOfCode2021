@@ -26,6 +26,11 @@ namespace AdventOfCode2021.Input
             return Array.ConvertAll(stringArr, int.Parse);
         }
 
+        public string[] GetSplitRow(string input)
+        {
+            return input.Trim().Split(' ');
+        }
+
         public Movement[] GetMovements(string[] results)
         {
             Movement[] movements = new Movement[results.Length];
