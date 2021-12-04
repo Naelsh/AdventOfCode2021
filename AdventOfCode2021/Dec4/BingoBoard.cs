@@ -103,11 +103,27 @@ namespace AdventOfCode2021.Dec4
             InputHandler inputHandler = new InputHandler();
             for (int rowIndex = 0; rowIndex < input.Length; rowIndex++)
             {
-                string[] numberStrings = inputHandler.GetSplitRow(input[rowIndex]);
+                string[] numberStrings = inputHandler.GetBingoSplitRow(input[rowIndex]);
                 int[] numbers = inputHandler.ConvertStringListToInt(numberStrings);
                 newBoard[rowIndex] = numbers;
             }
             boardNumber = newBoard;
+        }
+
+        public int SumUnmarkedTiles()
+        {
+            int sum = 0;
+            for (int row = 0; row < boardNumber.Length; row++)
+            {
+                for (int column = 0; column < boardNumber[0].Length; column++)
+                {
+                    if (hitMarkers[row][column] == 0)
+                    {
+                        sum += boardNumber[row][column];
+                    }
+                }
+            }
+            return sum;
         }
     }
 }

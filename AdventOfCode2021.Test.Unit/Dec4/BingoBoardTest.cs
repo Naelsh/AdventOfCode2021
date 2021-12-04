@@ -12,9 +12,9 @@ namespace AdventOfCode2021.Test.Unit.Dec4
             get
             {
                 {
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[][] { new int[] { 1, 2, 3, 4, 5 }, new int[] { 6, 7, 8, 9, 10 }, new int[] { 11, 12, 13, 14, 15 }, new int[] { 16, 17, 18, 19, 20 }, new int[] { 21, 22, 23, 24, 25 } });
-                    yield return new TestCaseData(new string[] { "10 20 30 40 50", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { "10 20 30 40 50", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[][] { new int[] { 10, 20, 30, 40, 50 }, new int[] { 6, 7, 8, 9, 10 }, new int[] { 11, 12, 13, 14, 15 }, new int[] { 16, 17, 18, 19, 20 }, new int[] { 21, 22, 23, 24, 25 } });
                 }
             }
@@ -34,10 +34,10 @@ namespace AdventOfCode2021.Test.Unit.Dec4
             get
             {
                 {
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         1,
                         new byte[][] { new byte[] { 1, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         2,
                         new byte[][] { new byte[] { 0, 1, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
                 }
@@ -60,19 +60,19 @@ namespace AdventOfCode2021.Test.Unit.Dec4
             get
             {
                 {
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[] { 1 },
                         new byte[][] { new byte[] { 1, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[] { 2 },
                         new byte[][] { new byte[] { 0, 1, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[] { 1, 2, 3, 4, 5 },
                         new byte[][] { new byte[] { 1, 1, 1, 1, 1 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[] { 1, 6, 9, 10, 12 },
                         new byte[][] { new byte[] { 1, 0, 0, 0, 0 }, new byte[] { 1, 0, 0, 1, 1 }, new byte[] { 0, 1, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
-                    yield return new TestCaseData(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
                         new int[] { 100, 600, 900, 101, 120 },
                         new byte[][] { new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 }, new byte[] { 0, 0, 0, 0, 0 } });
 
@@ -101,13 +101,41 @@ namespace AdventOfCode2021.Test.Unit.Dec4
         public void BoardHasWon(int[] guesses, bool expected)
         {
             BingoBoard bingoBoard = new BingoBoard();
-            bingoBoard.CreateBoard(new string[] { "1 2 3 4 5", "6 7 8 9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" });
+            bingoBoard.CreateBoard(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" });
             foreach (int guess in guesses)
             {
                 bingoBoard.FindMatch(guess);
             }
 
             Assert.AreEqual(expected, bingoBoard.HasWon());
+        }
+
+        public static IEnumerable<TestCaseData> SumGetterData
+        {
+            get
+            {
+                {
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                        new int[] { 1 },
+                        324 );
+                    yield return new TestCaseData(new string[] { " 1  2  3  4  5", " 6  7  8  9 10", "11 12 13 14 15", "16 17 18 19 20", "21 22 23 24 25" },
+                        new int[] { 1,2,3,4 },
+                        315);
+                }
+            }
+        }
+
+        [Test, TestCaseSource(nameof(SumGetterData))]
+        public void GetSumForUnmarkedTiles(string[] boardInput, int[] guesses, int expected)
+        {
+            BingoBoard bingoBoard = new BingoBoard();
+            bingoBoard.CreateBoard(boardInput);
+            foreach (int guess in guesses)
+            {
+                bingoBoard.FindMatch(guess);
+            }
+
+            Assert.AreEqual(expected, bingoBoard.SumUnmarkedTiles());
         }
     }
 }

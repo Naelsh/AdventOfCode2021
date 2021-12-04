@@ -76,5 +76,15 @@ namespace AdventOfCode2021.Test.Unit.Input
                 Assert.AreEqual(expectedMovements[movementIndex], movements[movementIndex]);
             }
         }
+
+        [TestCase(" 1 10", new string[] { "1", "10" })]
+        [TestCase(" 1 10  2 20 11", new string[] { "1", "10","2","20","11" })]
+        public void BingoSplit(string input, string[] expected)
+        {
+            InputHandler inputHandler = new InputHandler();
+            string[] result = inputHandler.GetBingoSplitRow(input);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }

@@ -31,6 +31,20 @@ namespace AdventOfCode2021.Input
             return input.Trim().Split(' ');
         }
 
+        public string[] GetBingoSplitRow(string input)
+        {
+            List<string> returnList = new List<string>();
+            for (int charIndex = 0; charIndex < input.Length; charIndex+=3)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(input[charIndex]);
+                sb.Append(input[charIndex + 1]);
+                string finalized = sb.ToString().Trim();
+                returnList.Add(finalized);
+            }
+            return returnList.ToArray();
+        }
+
         public Movement[] GetMovements(string[] results)
         {
             Movement[] movements = new Movement[results.Length];

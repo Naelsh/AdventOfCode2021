@@ -1,5 +1,6 @@
 ﻿using AdventOfCode2021.Dec2;
 using AdventOfCode2021.Dec3;
+using AdventOfCode2021.Dec4;
 using AdventOfCode2021.Input;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,14 @@ namespace AdventOfCode2021.Menusystem
             switch (input)
             {
                 case 1:
+                    BingoSystem bingoSystem = new BingoSystem();
+                    bingoSystem.SetGuessedNumbers(results[0]);
+                    List<string> tempList = results.ToList();
+                    tempList.RemoveAt(0);
+                    bingoSystem.SetUpBoards(tempList.ToArray());
+                    int finalNumber = bingoSystem.DrawNumbers(out BingoBoard winner);
+                    Console.WriteLine($"And the winning number is: {finalNumber} and the board sum is {winner.SumUnmarkedTiles()}");
+                    Console.WriteLine($"Which gives a total of {finalNumber * winner.SumUnmarkedTiles()}");
                     break;
                 case 2:
                     break;
