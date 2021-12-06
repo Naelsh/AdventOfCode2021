@@ -1,5 +1,6 @@
 ﻿using AdventOfCode2021.Dec2;
 using AdventOfCode2021.Dec3;
+using AdventOfCode2021.Dec5;
 using AdventOfCode2021.Input;
 using System;
 using System.Collections.Generic;
@@ -54,11 +55,17 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             string[] results = inputHandler.GetInputRows("dec5.txt");
+            HydrothermalVentScanner scanner = new HydrothermalVentScanner();
+            scanner.SetupVents(results);
+            scanner.CalculateIntersections();
+            int overlaps = scanner.CountOfOverlappedPoints();
             switch (input)
             {
                 case 1:
+                    Console.WriteLine($"The number of oerlaps are: {overlaps}");
                     break;
                 case 2:
+                    Console.WriteLine($"The number of oerlaps are: {overlaps}");
                     break;
                 case 3:
                     break;
