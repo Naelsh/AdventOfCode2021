@@ -54,5 +54,32 @@ namespace AdventOfCode2021.Test.Unit.Dec6
             Assert.AreEqual(expected, scanner.Fishes.Count);
         }
 
+        [TestCase(0, 5)]
+        [TestCase(2, 6)]
+        [TestCase(3, 7)]
+        [TestCase(18, 26)]
+        [TestCase(80, 5934)]
+        [TestCase(256, 26984457539)]
+        public void TakeOverTheWorldCounterForDifferentNumberOfDays(int numDays, long expected)
+        {
+            LanternfishScanner scanner = new LanternfishScanner();
+            string[] input = new string[] { "3,4,3,1,2" };
+            scanner.SetupWorldDominationCounter(input);
+            scanner.TakeOverTheWorldCounter(numDays);
+            long result = scanner.TotalAmountOfWorldDominationFishes();
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestCase(new string[] { "3,4,3,1,2" }, new long[] { 0, 1, 1, 2, 1, 0, 0, 0, 0 })]
+        [TestCase(new string[] { "3,4,3,1,2,5,6" }, new long[] { 0, 1, 1, 2, 1, 1, 1, 0, 0 })]
+        public void SetupFishCountersForWorldDomination(string[] input, long[] expected)
+        {
+            LanternfishScanner scanner = new LanternfishScanner();
+            scanner.SetupWorldDominationCounter(input);
+
+            Assert.AreEqual(expected, scanner.WorldDominationFishes);
+        }
+
     }
 }

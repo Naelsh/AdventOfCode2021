@@ -69,7 +69,11 @@ namespace AdventOfCode2021.Menusystem
                     Console.WriteLine($"The total number of fishes after {days} days are: {scanner.Fishes.Count}");
                     break;
                 case 2:
+                    scanner.SetupWorldDominationCounter(results);
                     days = 256;
+                    scanner.TakeOverTheWorldCounter(days);
+                    long total = scanner.TotalAmountOfWorldDominationFishes();
+                    Console.WriteLine($"The total number of fishes after {days} days are: {total}");
                     break;
                 case 3:
                     break;
