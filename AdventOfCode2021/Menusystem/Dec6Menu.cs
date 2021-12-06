@@ -1,5 +1,6 @@
 ﻿using AdventOfCode2021.Dec2;
 using AdventOfCode2021.Dec3;
+using AdventOfCode2021.Dec6;
 using AdventOfCode2021.Input;
 using System;
 using System.Collections.Generic;
@@ -54,11 +55,21 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             string[] results = inputHandler.GetInputRows("dec6.txt");
+            LanternfishScanner scanner = new LanternfishScanner();
+            scanner.SetupFishCollection(results);
+            int days = 80;
             switch (input)
             {
                 case 1:
+                    days = 80;
+                    for (int day = 0; day < days; day++)
+                    {
+                        scanner.BreedNewFishes(scanner.CalculateNextDay());
+                    }
+                    Console.WriteLine($"The total number of fishes after {days} days are: {scanner.Fishes.Count}");
                     break;
                 case 2:
+                    days = 256;
                     break;
                 case 3:
                     break;
