@@ -1,10 +1,5 @@
 ﻿using AdventOfCode2021.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AdventOfCode2021.Extensions;
 
 namespace AdventOfCode2021.Dec7
 {
