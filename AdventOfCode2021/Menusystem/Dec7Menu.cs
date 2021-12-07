@@ -1,11 +1,6 @@
-﻿using AdventOfCode2021.Dec2;
-using AdventOfCode2021.Dec3;
+﻿using AdventOfCode2021.Dec7;
 using AdventOfCode2021.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2021.Menusystem
 {
@@ -54,11 +49,17 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             string[] results = inputHandler.GetInputRows("dec7.txt");
+            HorizontalMover mover = new HorizontalMover();
+            mover.SetupVehicles(results);
             switch (input)
             {
                 case 1:
+                    int fuelCost = mover.CalculateOptimalFuelCost();
+                    Console.WriteLine($"The crabs need {fuelCost} fuel toe move to index {mover.CalcualteOptimalIndexToMoveTowards()}");
                     break;
                 case 2:
+                    int crabFuelCost = mover.CalculateOptimalFuelCostCrabStyle();
+                    Console.WriteLine($"The crabs need {crabFuelCost} fuel toe move to index {mover.CalcualteOptimalIndexToMoveTowardsCrabStyle()}");
                     break;
                 case 3:
                     break;

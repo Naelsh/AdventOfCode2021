@@ -19,13 +19,82 @@ namespace AdventOfCode2021.Dec7
             Vehicles = values;
         }
 
-        public int CalcualteOptimalFuelCost()
+        public int CalculateOptimalFuelCost()
         {
-            List<int> workingList = new List<int>(Vehicles);
-            workingList.Sort();
-            List<int> uniqueList = new List<int>(Vehicles);
-            uniqueList = uniqueList.RemoveDuplicates();
-            return 0;
+            return MoveTowards(CalcualteOptimalIndexToMoveTowards());
+        }
+
+        public int CalcualteOptimalIndexToMoveTowards()
+        {
+            int index = 0;
+            bool isSearching = true;
+            while (isSearching)
+            {
+                if (MoveTowards(index) > MoveTowards(index + 1))
+                {
+                    index++;
+                }
+                else if (MoveTowards(index) > MoveTowards(index - 1))
+                {
+                    index--;
+                }
+                else
+                {
+                    isSearching = false;
+                }
+            }
+            return index;
+        }
+
+        public int MoveTowards(int position)
+        {
+            int total = 0;
+            foreach (int vehicle in Vehicles)
+            {
+                total += Math.Abs(position - vehicle);
+            }
+            return total;
+        }
+
+        public int MoveTowardsCrabStyle(int position)
+        {
+            int total = 0;
+            foreach (int vehicle in Vehicles)
+            {
+                int stepsToTake = Math.Abs(position - vehicle);
+                for (int step = 1; step <= stepsToTake; step++)
+                {
+                    total += step;
+                }
+            }
+            return total;
+        }
+
+        public int CalcualteOptimalIndexToMoveTowardsCrabStyle()
+        {
+            int index = 0;
+            bool isSearching = true;
+            while (isSearching)
+            {
+                if (MoveTowardsCrabStyle(index) > MoveTowardsCrabStyle(index + 1))
+                {
+                    index++;
+                }
+                else if (MoveTowardsCrabStyle(index) > MoveTowardsCrabStyle(index - 1))
+                {
+                    index--;
+                }
+                else
+                {
+                    isSearching = false;
+                }
+            }
+            return index;
+        }
+
+        public int CalculateOptimalFuelCostCrabStyle()
+        {
+            return MoveTowardsCrabStyle(CalcualteOptimalIndexToMoveTowardsCrabStyle());
         }
     }
 }
