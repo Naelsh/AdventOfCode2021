@@ -14,7 +14,7 @@ namespace AdventOfCode2021.Test.Unit.Dec8
             display.SetupSegments(input);
             int expectedLength = 1;
             string expectedSignalAtFirstPosition = "be";
-            string expectedOutputAtFourthPosition = "gcbe";
+            string expectedOutputAtFourthPosition = "bceg";
 
             Assert.AreEqual(expectedLength, display.Segments.Count);
             Assert.AreEqual(expectedSignalAtFirstPosition, display.Segments[0].SignalPattern[0]);

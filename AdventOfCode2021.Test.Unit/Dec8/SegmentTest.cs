@@ -7,9 +7,9 @@ namespace AdventOfCode2021.Test.Unit.Dec8
     class SegmentTest
     {
         [TestCase(1,"bg")]
-        [TestCase(7,"gbd")]
-        [TestCase(4,"aebg")]
-        [TestCase(8,"efabdcg")]
+        [TestCase(7,"bdg")]
+        [TestCase(4,"abeg")]
+        [TestCase(8,"abcdefg")]
         public void SetupInitialFour(int number, string expected)
         {
             string input = "bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg";
@@ -33,8 +33,8 @@ namespace AdventOfCode2021.Test.Unit.Dec8
             Assert.AreEqual(expectedBottom, segment._signalMap.locationMap[Side.LeftBottom]);
         }
 
-        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "gcdaeb")]
-        [TestCase("eabfdc fgd cegd aedgf fbacgd dceaf dg aebdcgf efbag edgfac | cgebadf dgce deafc acdbfg", "edgfac")]
+        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "abcdeg")]
+        [TestCase("eabfdc fgd cegd aedgf fbacgd dceaf dg aebdcgf efbag edgfac | cgebadf dgce deafc acdbfg", "acdefg")]
         public void AddNumberNineInDictionary(string input, string expected)
         {
             Segment segment = new Segment(input);
@@ -43,7 +43,7 @@ namespace AdventOfCode2021.Test.Unit.Dec8
             Assert.AreEqual(expected, segment.ReverseMap[9]);
         }
 
-        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "cafdbe")]
+        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "abcdef")]
         public void AddNumberSixInDictionary(string input, string expected)
         {
             Segment segment = new Segment(input);
@@ -52,7 +52,7 @@ namespace AdventOfCode2021.Test.Unit.Dec8
             Assert.AreEqual(expected, segment.ReverseMap[6]);
         }
 
-        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "fcbdeg")]
+        [TestCase("bg gcdaeb aebg efabdcg abdce cafdbe fcbdeg bdacg gbd cafgd | daecb dcbae gb eabg", "bcdefg")]
         public void AddNumberZeroInDeictionary(string input, string expected)
         {
             Segment segment = new Segment(input);
