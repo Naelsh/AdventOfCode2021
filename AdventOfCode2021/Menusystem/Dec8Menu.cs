@@ -1,5 +1,6 @@
 ﻿using AdventOfCode2021.Dec2;
 using AdventOfCode2021.Dec3;
+using AdventOfCode2021.Dec8;
 using AdventOfCode2021.Input;
 using System;
 using System.Collections.Generic;
@@ -54,11 +55,18 @@ namespace AdventOfCode2021.Menusystem
             int input = GetIntAboveZeroFromUserInput(3);
             InputHandler inputHandler = new InputHandler();
             string[] results = inputHandler.GetInputRows("dec8.txt");
+            SevenSegmentDisplay display = new SevenSegmentDisplay();
+            display.SetupSegments(results);
             switch (input)
             {
                 case 1:
+                    int total = display.CountOnesFoursSevenEigths();
+                    Console.WriteLine("Total amounts of easy digits, 1, 4, 7 and 8 are: " + total);
                     break;
                 case 2:
+                    display.PrepareSegments();
+                    int sum = display.GetOutputSum();
+                    Console.WriteLine("Total sum of all output: " + sum);
                     break;
                 case 3:
                     break;
